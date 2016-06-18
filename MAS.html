@@ -1,0 +1,37 @@
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mac App Store - Fusion 360</title>
+   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  </head>
+  <body>
+ 
+   <script>
+ 
+  $( document ).ready(function() {
+    $( "p" ).text( "The DOM is now loaded and can be manipulated." );
+  });
+
+/*Eventually i need to populate this array with the countries in here - https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Appendices/AppStoreTerritories.html. This way it is dynamic and if the list of countries changes I am not broken. 
+
+//Here is what I am trying to do. When updates to the Fusion 360 is released to the app store, I often get asked the question has all the countries (or our top 10 countries got the update). I usually go to each store and keep refershing the page to see if the new version shows up. I want to automate this such that i run the html and get the report of which countries have the update and whic dont yet. 
+
+//STUCK - I am able to get the "data" from the page but I am not sure how to parse just for the version number from this data.*/
+
+  var countryCodes = ["AE","US"];
+
+  var baseUrl = "https://itunes.apple.com/";
+  var suffix = "/app/fusion-360/id868968810";
+
+  var i = 0;
+  var country = countryCodes[i];
+  var url = baseUrl + country + suffix;
+
+  $.get(url).done(function(data,status){
+   console.log(data);
+  });
+ 
+  </script>
+  </body>
+</html>
